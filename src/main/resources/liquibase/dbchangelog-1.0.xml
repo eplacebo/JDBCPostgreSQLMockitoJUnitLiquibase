@@ -1,0 +1,59 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="E (generated)" id="1626330760255-1">
+        <createTable tableName="posts">
+            <column name="id_post" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="updated" type="TIMESTAMP WITH TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-2">
+        <createTable tableName="regions">
+            <column name="id_region" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-3">
+        <addUniqueConstraint columnNames="id_post" constraintName="id" tableName="posts"/>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-4">
+        <createIndex indexName="id" tableName="posts" unique="true">
+            <column name="id_post"/>
+            <column name="id_post"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-5">
+        <addUniqueConstraint columnNames="id_region" constraintName="idregion" tableName="regions"/>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-6">
+        <createIndex indexName="idregion" tableName="regions" unique="true">
+            <column name="id_region"/>
+            <column name="id_region"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-7">
+        <addForeignKeyConstraint baseColumnNames="id_post" baseTableName="posts" constraintName="io" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id_region" referencedTableName="regions" validate="true"/>
+    </changeSet>
+    <changeSet author="E (generated)" id="1626330760255-8">
+        <createTable tableName="users">
+            <column name="id_user" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="first_name" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
